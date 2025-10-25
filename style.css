@@ -1,5 +1,5 @@
 .logo {
-    width: 175px;
+    width: 250px;
 }
 
 header {
@@ -10,15 +10,22 @@ header {
 
 .navbar {
     background-color: #242423;
+    height: 70px;
+    top: 25px;
 }
 
 .nav-link{
     padding: 8px 16px;
-    background-color: #859F3D;
     border-radius: 10px;
+    text-decoration: underline;
+    color: #ffffff;
 }
 
 body {
     background-color: #1A1A19;
 }
 
+.pattern {
+    width: 120%;
+    height:150px;
+}

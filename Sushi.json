@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Роли з лососем",
+        "price": 250,
+        "image": "img/sushi.png"
+    },
+    {
+        "title": "Роли з тунецем",
+        "price": 250,
+        "image": "img/sushi.png"
+    },
+    {
+        "title": "Роли з вугрем",
+        "price": 250,
+        "image": "img/sushi.png"
+    },
+    {
+        "title": "Роли з авокадо",
+        "price": 250,
+        "image": "img/sushi.png"
+    },
+    {
+        "title": "Роли з огірком",
+        "price": 250,
+        "image": "img/sushi.png"
+    }
+
+
+
+
+
+
+
+]
