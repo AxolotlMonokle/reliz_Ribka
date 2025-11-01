@@ -1,34 +1,67 @@
 [
     {
-        "title": "Роли з лососем",
-        "price": 250,
-        "image": "img/sushi.png"
+        "title": "сирний-гриль рол",
+        "price": 280,
+        "image": "img/chessegrill.jpg"
     },
     {
-        "title": "Роли з тунецем",
-        "price": 250,
-        "image": "img/sushi.png"
+        "title": "запечений рол спайсі чікен",
+        "price": 220,
+        "image": "img/spicychikensushi.jpg"
     },
     {
-        "title": "Роли з вугрем",
-        "price": 250,
-        "image": "img/sushi.png"
+        "title": "рол з манго",
+        "price": 260,
+        "image": "img/mangosushi.jpg"
     },
     {
-        "title": "Роли з авокадо",
-        "price": 250,
-        "image": "img/sushi.png"
+        "title": "рол червоний оксамит",
+        "price": 410,
+        "image": "img/redoksamitsushi.jpg"
     },
     {
-        "title": "Роли з огірком",
+        "title": "Рол з лососем",
+        "price": 240,
+        "image": "img/salmonsushi.jpg"
+    },
+    {
+        "title": "рол з креветкою",
         "price": 250,
-        "image": "img/sushi.png"
+        "image": "img/shrimpsushi.jpg"
+    },
+    {
+        "title": "рол з тунцем",
+        "price": 240,
+        "image": "img/tunasushi.jpg"
+    },
+    {
+        "title": "запечений рол чікен з грушою",
+        "price": 220,
+        "image": "img/chikenpearsushi.jpg"
+    },
+    {
+        "title": "хендрол з тунцем і авокадо",
+        "price": 200,
+        "image": "img/HRtunapear.png"
+    },
+    {
+        "title": "хендрол спайсі чікен",
+        "price": 200,
+        "image": "img/HRspicychiken.png"
+    },
+    {
+        "title": "хендрол з креветкою",
+        "price": 200,
+        "image": "img/HRshrimp.png"
+    },
+    {
+        "title": "хендрол міх",
+        "price": 220,
+        "image": "img/HRmix.png"
+    },
+        {
+        "title": "хендрол з вугрем і манго",
+        "price": 230,
+        "image": "img/HRmango.png"
     }
-
-
-
-
-
-
-
 ]
