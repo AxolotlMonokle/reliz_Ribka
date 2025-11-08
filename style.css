@@ -17,8 +17,13 @@ header {
 .nav-link{
     padding: 8px 16px;
     border-radius: 10px;
-    text-decoration: underline;
     color: #ffffff;
+}
+
+.nav-link:hover{
+    padding: 8px 16px;
+    border-radius: 10px;
+    color: #b4b3b3;
 }
 
 body {
@@ -28,4 +33,44 @@ body {
 .pattern {
     width: 120%;
     height:150px;
+    left: 190px;
+    position: left 120px;
+
+}
+
+.btn-outline-success {
+  color: #ffffff !important;
+  border-color: #1A1A19 !important;
+  background-color: #859f3d !important;
+  border-radius: 8px;
+  border-width: 0px;
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-success:hover {
+  color: #b4b3b3 !important;
+  border-color: #1A1A19 !important;
+  background-color: #859f3d !important;
+  border-radius: 8px;
+  border-width: 0px;
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+}
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  border-radius: 12px;
+  padding: 20px;
+  color: #000000;
+  background-color: #292928;
+  text-align: center;
+  border: 1px solid #333;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
