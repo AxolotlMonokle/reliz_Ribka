@@ -97,7 +97,7 @@ body {
 }
 
 #reviews .card .card-title {
-    color: #ffd700; /* золотий колір для імен */
+    color: #ffffff; /* золотий колір для імен */
 }
 
 #reviews .card .card-text {
@@ -105,7 +105,7 @@ body {
 }
 
 #reviews .card .text-warning {
-    color: #ffd700; /* зірочки золоті */
+    color: #ffffff; /* зірочки золоті */
 }
 
 /* Додатково стиль для форми */
@@ -137,4 +137,49 @@ body {
 
 .container {
     color: white; 
+}
+
+.form-control {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+.cart-btn {
+    background-color: #859f3d !important;
+    border-color: #859f3d !important;
+    border-radius: 8px;
+    padding: 6px 14px;
+    transition: all 0.25s ease;
+    color: white;
+}
+
+.cart-btn1 {
+    background-color: #859f3d!important;
+    border-color: #859f3d !important;
+    border-radius: 8px;
+    padding: 6px 14px;
+    transition: all 0.25s ease;
+    color: white;
+}
+
+.images-row {
+    display: flex;        /* Розташовує блоки в ряд */
+    width: 100%;          /* Контейнер займає всю ширину */
+    gap: 0;               /* Без відступів між картинками */
+}
+
+/* Кожен блок займає половину ширини */
+.images-row > div {
+    flex: 1;              /* Два блоки рівної ширини */
+    overflow: hidden;     /* Обрізає зайве, якщо картинка менша */
+}
+
+/* Картинки */
+.images-row img.pattern {
+    width: 100%;          /* Картинка розтягується по ширині блоку */
+    max-width: none;      /* Заборона обмеження по максимальній ширині */
+    height: 150px;        /* Висота блоку */
+    object-fit: fill;     /* Розтягує картинку під блок без збереження пропорцій */
+    display: block;       /* Прибирає невеликі пробіли під картинкою */
 }
