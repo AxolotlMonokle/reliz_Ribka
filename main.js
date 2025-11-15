@@ -40,69 +40,88 @@ function getCardHTML(product) {
 </div>`;
 }
 
-class ShoppingCart {
-    constructor() {
-        this.loadCartFromCookies();
-        this.items = {} // об’єкт з товарами у кошику
-        this.total = 0  // загальна вартість замовлення
-    }
-
-    addItem(item) {
-        // Додавання товару до кошика 
-        if (this.items[item.title]) {
-            this.items[item.title].quantity += 1
-        } else {
-            this.items[item.title] = item
-            this.items[item.title].quantity = 1
-        }
-        this.saveCartToCookies();
-    }
-
-    saveCartToCookies() {
-        // збереження кошика у кукі
-        let cartJSON = JSON.stringify(this.items);
-        document.cookie = `cart=${cartJSON}; max-age=${60 * 60 * 24 * 7}; path=/`;
-    }
-
-    loadCartFromCookies() {
-        // Завантаження кошика з кукі
-        let cartCookie = getCookieValue('cart');
-        if (cartCookie && cartCookie !== '') {
-            this.items = JSON.parse(cartCookie);
-        }
-
-    }
-}
-let cart = new ShoppingCart() // Створення об'єкта кошика
-
-function addToCart(event) {
-    const productData = event.target.getAttribute('data-product');
-    const product = JSON.parse(productData);
-    cart.addItem(product);
-
-}
-
-// Викликаємо асинхронну функцію та очікуємо на отримання продуктів
+// Відображаємо товари на сторінці
 getProducts().then(function (products) {
-    let productsList = document.querySelector('.products-list')
-    if (productsList) {
-        products.forEach(function (product) {
-            // Відображаємо товари на сторінці
-            productsList.innerHTML += getCardHTML(product)
-        })
-    }
-    // Отримуємо всі кнопки "Купити" на сторінці
-    let buyButtons = document.querySelectorAll('.products-list .btn-primary');
-    // Навішуємо обробник подій на кожну кнопку "Купити"
-    if (buyButtons) {
-        buyButtons.forEach(function (button) {
-            button.addEventListener('click', addToCart)
-        });
-    }
-})
+  let productsList = document.querySelector(".products-list");
+  if (productsList) {
+    products.forEach(function (product) {
+      productsList.innerHTML += getCardHTML(product);
+    });
+  }
 
-//Оформлення сторніки "Корзина"
+  // Отримуємо всі кнопки "Купити" на сторінці
+  let buyButtons = document.querySelectorAll(".products-list .cart-btn");
+  // Навішуємо обробник подій на кожну кнопку "Купити"
+  if (buyButtons) {
+    buyButtons.forEach(function (button) {
+      button.addEventListener("click", addToCart);
+    });
+  }
+});
+
+// Створення класу кошика
+class ShoppingCart {
+  constructor() {
+    this.items = {};
+    this.loadCartFromCookies(); // завантажуємо з кукі-файлів раніше додані в кошик товари
+  }
+
+  // Додавання товару до кошика
+  addItem(item) {
+    if (this.items[item.title]) {
+      this.items[item.title].quantity += 1; // Якщо товар вже є, збільшуємо його кількість на одиницю
+    } else {
+      this.items[item.title] = item; // Якщо товару немає в кошику, додаємо його
+      this.items[item.title].quantity = 1;
+    }
+    this.saveCartToCookies();
+  }
+
+  // Зберігання кошика в кукі
+  saveCartToCookies() {
+    let cartJSON = JSON.stringify(this.items);
+    document.cookie = `cart=${cartJSON}; max-age=${60 * 60 * 24 * 7}; path=/`;
+  }
+
+  // Завантаження кошика з кукі
+  loadCartFromCookies() {
+    let cartCookie = getCookieValue("cart");
+    if (cartCookie && cartCookie !== "") {
+      this.items = JSON.parse(cartCookie);
+    }
+  }
+  // Обчислення загальної вартості товарів у кошику
+  calculateTotal() {
+    let total = 0;
+    for (let key in this.items) {
+      // проходимося по всіх ключах об'єкта this.items
+      total += this.items[key].price * this.items[key].quantity; // рахуємо вартість усіх товарів
+    }
+    return total;
+  }
+}
+
+// Створення об'єкта кошика
+let cart = new ShoppingCart();
+
+// Функція для додавання товару до кошика при кліку на кнопку "Купити"
+function addToCart(event) {
+  // Отримуємо дані про товар з data-атрибута кнопки
+  const productData = event.target.getAttribute("data-product");
+  const product = JSON.parse(productData);
+
+  // Додаємо товар до кошика
+  cart.addItem(product);
+  console.log(cart);
+}
+
+//КОРЗИНА
 let cart_list = document.querySelector(".cart-items-list");
+let cart_total = document.querySelector(".cart-total");
+let orderBtn = document.querySelector("#orderBtn");
+let orderSection = document.querySelector(".order");
+let cartBtn = document.querySelector(".cart-btn1");
+
 function get_item(item) {
   return `<div class = "cart-item">
                 <h4 class="cart-item-title">${item.title}</h4>
@@ -114,3 +133,74 @@ function get_item(item) {
   } грн</div>
             </div>`;
 }
+
+function showCartList() {
+  //cart_list.innerHTML = "";
+  for (let key in cart.items) {
+    // проходимося по всіх ключах об'єкта cart.items
+    cart_list.innerHTML += get_item(cart.items[key]);
+  }
+  cart_total.innerHTML = cart.calculateTotal();
+}
+
+showCartList();
+
+orderBtn.addEventListener("click", function (event) {
+  orderBtn.style.display = "none";
+  orderSection.style.display = "block";
+  anime({
+    targets: ".order",
+    opacity: 1, // Кінцева прозорість (1 - повністю видимий)
+    duration: 1000, // Тривалість анімації в мілісекундах
+    easing: "easeInOutQuad",
+  });
+});
+
+cartBtn.addEventListener("click", function () {
+  alert("Ваше замовлення прийнято, очікуйте на дзівнок менеджера ");
+  orderSection.reset();
+});
+
+// отримуємо елементи
+const reviewForm = document.getElementById("reviewForm");
+const reviewsContainer = document.getElementById("reviews");
+
+// функція рендеру відгуків
+function renderReviews() {
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviewsContainer.innerHTML = "";
+    reviews.forEach((review) => {
+        const div = document.createElement("div");
+        div.classList.add("col-md-4");
+        div.innerHTML = `
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">${review.name}</h5>
+                    <p class="card-text">${review.text}</p>
+                    <div class="text-warning fw-bold fs-5">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</div>
+                </div>
+            </div>
+        `;
+        reviewsContainer.appendChild(div);
+    });
+}
+
+// обробник форми
+reviewForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const text = document.getElementById("text").value.trim();
+    const rating = parseInt(document.getElementById("rating").value);
+
+    if (!name || !text) return;
+
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.push({ name, text, rating });
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    reviewForm.reset();
+    renderReviews();
+});
+
+// показати відгуки при завантаженні сторінки
+renderReviews();
