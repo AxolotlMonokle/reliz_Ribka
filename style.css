@@ -183,3 +183,18 @@ body {
     object-fit: fill;     /* Розтягує картинку під блок без збереження пропорцій */
     display: block;       /* Прибирає невеликі пробіли під картинкою */
 }
+
+
+.pattern1 {
+  background-color: #055f05;
+  height: 50px;
+}
+
+.pattern2 {
+  background-color: #12b812;
+  height: 50px;
+}
+.pattern3 {
+  background-color: #d7ead7;
+  height: 50px;
+}
