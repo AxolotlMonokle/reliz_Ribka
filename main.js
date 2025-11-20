@@ -1,41 +1,41 @@
 // Функція для отримання значення кукі за ім'ям
 function getCookieValue(cookieName) {
-    // Розділяємо всі куки на окремі частини
-    const cookies = document.cookie.split(';');
+  // Розділяємо всі куки на окремі частини
+  const cookies = document.cookie.split(";");
 
+  // Шукаємо куки з вказаним ім'ям
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
 
-    // Шукаємо куки з вказаним ім'ям
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim(); // Видаляємо зайві пробіли
-
-
-        // Перевіряємо, чи починається поточне кукі з шуканого імені
-        if (cookie.startsWith(cookieName + '=')) {
-            // Якщо так, повертаємо значення кукі
-            return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
-        }
+    // Перевіряємо, чи починається поточне кукі з шуканого імені
+    if (cookie.startsWith(cookieName + "=")) {
+      // Якщо так, повертаємо значення кукі
+      return cookie.substring(cookieName.length + 1); // +1 для пропуску символу "="
     }
-    // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
-    return '';
+  }
+  // Якщо кукі з вказаним іменем не знайдено, повертаємо порожній рядок або можна повернути null
+  return "";
 }
 
 // Оголошуємо асинхронну функцію для отримання продуктів з сервера
 async function getProducts() {
-    // Виконуємо запит до файлу "store_db.json" та очікуємо на відповідь
-    let response = await fetch("Sushi.json")
-    // Очікуємо на отримання та розпакування JSON-даних з відповіді
-    let products = await response.json()
-    // Повертаємо отримані продукти
-    return products
-};
+  // Виконуємо запит до файлу "store_db.json" та очікуємо на відповідь
+  let response = await fetch("Sushi.json");
+  // Очікуємо на отримання та розпакування JSON-даних з відповіді
+  let products = await response.json();
+  // Повертаємо отримані продукти
+  return products;
+}
 
 function getCardHTML(product) {
-    return `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
   <img src="${product.image}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${product.title}</h5>
     <p class="card-price">Ціна: ${product.price} UAH</p>
-    <a href="#" class="btn btn-primary" data-product='${JSON.stringify(product)}'>Додати в кошик</a>
+    <a href="#" class="btn btn-primary" data-product='${JSON.stringify(
+      product
+    )}'>Додати в кошик</a>
   </div>
 </div>`;
 }
@@ -50,7 +50,7 @@ getProducts().then(function (products) {
   }
 
   // Отримуємо всі кнопки "Купити" на сторінці
-  let buyButtons = document.querySelectorAll(".products-list .cart-btn");
+  let buyButtons = document.querySelectorAll(".products-list .btn-primary");
   // Навішуємо обробник подій на кожну кнопку "Купити"
   if (buyButtons) {
     buyButtons.forEach(function (button) {
@@ -99,6 +99,11 @@ class ShoppingCart {
     }
     return total;
   }
+
+  clearCart() {
+    this.items = {}; // очищаємо об'єкт кошика
+    document.cookie = "cart=; max-age=0; path=/"; // видаляємо кукі
+  }
 }
 
 // Створення об'єкта кошика
@@ -115,27 +120,35 @@ function addToCart(event) {
   console.log(cart);
 }
 
-//КОРЗИНА
+//Корзина
 let cart_list = document.querySelector(".cart-items-list");
 let cart_total = document.querySelector(".cart-total");
 let orderBtn = document.querySelector("#orderBtn");
+let deleteBtn = document.querySelector("#deleteBtn");
 let orderSection = document.querySelector(".order");
-let cartBtn = document.querySelector(".cart-btn1");
-
+let orderForm = document.querySelector(".order-form");
+let confirmBtn = document.querySelector(".confirm-order-btn");
 function get_item(item) {
-  return `<div class = "cart-item">
-                <h4 class="cart-item-title">${item.title}</h4>
-                <div class="cart-item-quantity">Кількість: ${
-                  item.quantity
-                }</div>
+  return `<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${item.image}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+          <div class="cart-item-quantity">Кількість: ${item.quantity}</div>
                 <div class="cart-item-price" data-price="${item.price}">${
     item.price * item.quantity
   } грн</div>
-            </div>`;
+      </div>
+    </div>
+  </div>
+</div>`;
 }
 
 function showCartList() {
-  //cart_list.innerHTML = "";
+  cart_list.innerHTML = "";
   for (let key in cart.items) {
     // проходимося по всіх ключах об'єкта cart.items
     cart_list.innerHTML += get_item(cart.items[key]);
@@ -148,59 +161,18 @@ showCartList();
 orderBtn.addEventListener("click", function (event) {
   orderBtn.style.display = "none";
   orderSection.style.display = "block";
-  anime({
-    targets: ".order",
-    opacity: 1, // Кінцева прозорість (1 - повністю видимий)
-    duration: 1000, // Тривалість анімації в мілісекундах
-    easing: "easeInOutQuad",
-  });
 });
 
-cartBtn.addEventListener("click", function () {
-  alert("Ваше замовлення прийнято, очікуйте на дзівнок менеджера ");
-  orderSection.reset();
+confirmBtn.addEventListener("click", function () {
+  if (orderForm.checkValidity()) {
+    alert("Ваше замовлення успішно оформлено!");
+    orderForm.reset();
+  } else {
+    orderForm.reportValidity();
+  }
 });
 
-// отримуємо елементи
-const reviewForm = document.getElementById("reviewForm");
-const reviewsContainer = document.getElementById("reviews");
-
-// функція рендеру відгуків
-function renderReviews() {
-    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviewsContainer.innerHTML = "";
-    reviews.forEach((review) => {
-        const div = document.createElement("div");
-        div.classList.add("col-md-4");
-        div.innerHTML = `
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title">${review.name}</h5>
-                    <p class="card-text">${review.text}</p>
-                    <div class="text-warning fw-bold fs-5">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</div>
-                </div>
-            </div>
-        `;
-        reviewsContainer.appendChild(div);
-    });
-}
-
-// обробник форми
-reviewForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const text = document.getElementById("text").value.trim();
-    const rating = parseInt(document.getElementById("rating").value);
-
-    if (!name || !text) return;
-
-    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.push({ name, text, rating });
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-
-    reviewForm.reset();
-    renderReviews();
+deleteBtn.addEventListener("click", function () {
+  document.cookie = "cart=; max-age=0; path=/";
+  location.reload();
 });
-
-// показати відгуки при завантаженні сторінки
-renderReviews();
