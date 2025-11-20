@@ -1,48 +1,43 @@
 .logo {
-    width: 250px;
-    position: absolute  ;
+  width: 250px;
 }
 
 header {
-    background-color: #242423;
-    padding: 10px 0;
-    text-align: center;
+  background-color: #242423;
+  padding: 10px 0;
+  text-align: center;
 }
-
 
 .navbar {
-    background-color: #242423;
-    height: 70px;
-    top: 25px;
+  background-color: #242423;
+  height: 70px;
+  top: 25px;
 }
 
-.nav-link{
-    padding: 8px 16px;
-    border-radius: 10px;
-    color: #ffffff;
+.nav-link {
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #ffffff;
 }
 
-.nav-link:hover{
-    padding: 8px 16px;
-    border-radius: 10px;
-    color: #b4b3b3;
+.nav-link:hover {
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #b4b3b3;
 }
 
 body {
-    background-color: #1A1A19;
+  background-color: #1a1a19;
 }
 
 .pattern {
-    width: 100%;
-    height:150px;
-
-  
-
+  width: 100%;
+  height: 150px;
 }
 
 .btn-outline-success {
   color: #ffffff !important;
-  border-color: #1A1A19 !important;
+  border-color: #1a1a19 !important;
   background-color: #859f3d !important;
   border-radius: 8px;
   border-width: 0px;
@@ -52,7 +47,7 @@ body {
 
 .btn-outline-success:hover {
   color: #b4b3b3 !important;
-  border-color: #1A1A19 !important;
+  border-color: #1a1a19 !important;
   background-color: #859f3d !important;
   border-radius: 8px;
   border-width: 0px;
@@ -91,99 +86,96 @@ body {
 
 /* Картки відгуків */
 #reviews .card {
-    border-radius: 15px;
-    background-color: #222; /* темний фон */
-    color: white; /* білий текст */
+  border-radius: 15px;
+  background-color: #222; /* темний фон */
+  color: white; /* білий текст */
 }
 
 #reviews .card .card-title {
-    color: #ffffff; /* золотий колір для імен */
+  color: #ffffff; /* золотий колір для імен */
 }
 
 #reviews .card .card-text {
-    color: #ffffff; /* білий текст відгуку */
+  color: #ffffff; /* білий текст відгуку */
 }
 
 #reviews .card .text-warning {
-    color: #ffffff; /* зірочки золоті */
+  color: #ffffff; /* зірочки золоті */
 }
 
 /* Додатково стиль для форми */
 #reviewForm input,
 #reviewForm textarea,
 #reviewForm select {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
 }
 
 #reviewForm input::placeholder,
 #reviewForm textarea::placeholder {
-    color: #bbb; /* світло-сірий текст-підказка */
+  color: #bbb; /* світло-сірий текст-підказка */
 }
 
 #reviewForm button {
-    background-color: #4d88ff;
-    border-color: #4d88ff;
+  background-color: #4d88ff;
+  border-color: #4d88ff;
 }
 
 .form-label {
-    color: white; 
+  color: white;
 }
 
 .text-center {
-    color: white; 
+  color: white;
 }
 
 .container {
-    color: white; 
+  color: white;
 }
 
 .form-control {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
 }
 
 .cart-btn {
-    background-color: #859f3d !important;
-    border-color: #859f3d !important;
-    border-radius: 8px;
-    padding: 6px 14px;
-    transition: all 0.25s ease;
-    color: white;
+  background-color: #859f3d !important;
+  border-color: #859f3d !important;
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+  color: white;
 }
 
 .cart-btn1 {
-    background-color: #859f3d!important;
-    border-color: #859f3d !important;
-    border-radius: 8px;
-    padding: 6px 14px;
-    transition: all 0.25s ease;
-    color: white;
+  background-color: #859f3d !important;
+  border-color: #859f3d !important;
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+  color: white;
 }
 
 .images-row {
-    display: flex;        /* Розташовує блоки в ряд */
-    width: 100%;          /* Контейнер займає всю ширину */
-    gap: 0;               /* Без відступів між картинками */
+  /* Без відступів між картинками */
 }
 
 /* Кожен блок займає половину ширини */
 .images-row > div {
-    flex: 1;              /* Два блоки рівної ширини */
-    overflow: hidden;     /* Обрізає зайве, якщо картинка менша */
+  flex: 1; /* Два блоки рівної ширини */
+  overflow: hidden; /* Обрізає зайве, якщо картинка менша */
 }
 
 /* Картинки */
 .images-row img.pattern {
-    width: 100%;          /* Картинка розтягується по ширині блоку */
-    max-width: none;      /* Заборона обмеження по максимальній ширині */
-    height: 150px;        /* Висота блоку */
-    object-fit: fill;     /* Розтягує картинку під блок без збереження пропорцій */
-    display: block;       /* Прибирає невеликі пробіли під картинкою */
+  width: 100%; /* Картинка розтягується по ширині блоку */
+  max-width: none; /* Заборона обмеження по максимальній ширині */
+  height: 150px; /* Висота блоку */
+  object-fit: fill; /* Розтягує картинку під блок без збереження пропорцій */
+  display: block; /* Прибирає невеликі пробіли під картинкою */
 }
-
 
 .pattern1 {
   background-color: #055f05;
