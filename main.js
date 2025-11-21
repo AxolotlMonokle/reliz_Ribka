@@ -80,7 +80,7 @@ class ShoppingCart {
   // Зберігання кошика в кукі
   saveCartToCookies() {
     let cartJSON = JSON.stringify(this.items);
-    document.cookie = `cart=${cartJSON}; max-age=${60 * 60 * 24 * 7}; path=/`;
+    document.cookie = `cart=${cartJSON}; max-age=${60 * 60 * 24 * 7}; path=/`; // зберігаємо кукі на 7 днів
   }
 
   // Завантаження кошика з кукі
@@ -114,6 +114,7 @@ function addToCart(event) {
   // Отримуємо дані про товар з data-атрибута кнопки
   const productData = event.target.getAttribute("data-product");
   const product = JSON.parse(productData);
+  event.preventDefault();
 
   // Додаємо товар до кошика
   cart.addItem(product);

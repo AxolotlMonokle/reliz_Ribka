@@ -43,7 +43,7 @@ orderBtn.addEventListener("click", function (event) {
 
 confirmBtn.addEventListener("click", function () {
   if (orderForm.checkValidity()) {
-    alert("Ваше замовлення успішно оформлено!");
+    alert("Ваші суші незабаром до вас приїдуть!🍣🚘");
     orderForm.reset();
   } else {
     orderForm.reportValidity();

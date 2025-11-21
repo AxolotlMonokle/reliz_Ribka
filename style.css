@@ -69,7 +69,6 @@ body {
   background-color: #292928;
   text-align: center;
   border: 1px solid #333;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card {
@@ -81,7 +80,21 @@ body {
   border-color: #859f3d !important;
   border-radius: 8px;
   padding: 6px 14px;
+}
+
+.btn-primary:hover {
+  background-color: #859f3d !important;
+  border-color: #859f3d !important;
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: #e0e0e0;
+}
+
+.btn-primary:active {
+  transform: scale(1.2);
   transition: all 0.25s ease;
+  background-color: #697e31 !important;
+  border-color: #697e31 !important;
 }
 
 /* Картки відгуків */
@@ -140,22 +153,27 @@ body {
   border: 1px solid #555;
 }
 
-.cart-btn {
+.cart-btn, .cart-btn1 , .confirm-order-btn{
   background-color: #859f3d !important;
   border-color: #859f3d !important;
   border-radius: 8px;
   padding: 6px 14px;
-  transition: all 0.25s ease;
   color: white;
 }
 
-.cart-btn1 {
+.cart-btn:hover, .cart-btn1:hover , .confirm-order-btn:hover{
   background-color: #859f3d !important;
   border-color: #859f3d !important;
   border-radius: 8px;
   padding: 6px 14px;
+  color: #e0e0e0;
+}
+
+.cart-btn:active, .cart-btn1:active , .confirm-order-btn:active{
+  background-color: #697e31 !important;
+  border-color: #697e31 !important;
+  transform: scale(1.2);
   transition: all 0.25s ease;
-  color: white;
 }
 
 .images-row {
@@ -163,21 +181,41 @@ body {
 }
 
 .pattern1 {
-  background-color: #055f05;
-  height: 50px;
+  background-color: #31511e;
+  height: 45px;
   width: 100vw; /* займає всю ширину екрана */
   margin-left: calc(50% - 50vw); /* виходить за межі центруючого контейнера */
 }
 
 .pattern2 {
-  background-color: #12b812;
-  height: 50px;
+  background-color: #859f3d;
+  height: 35px;
   width: 100vw; /* займає всю ширину екрана */
   margin-left: calc(50% - 50vw); /* виходить за межі центруючого контейнера */
 }
 .pattern3 {
   background-color: #d7ead7;
-  height: 50px;
+  height: 25px;
   width: 100vw; /* займає всю ширину екрана */
   margin-left: calc(50% - 50vw); /* виходить за межі центруючого контейнера */
+}
+
+.order{
+  display: none;
+}
+
+.footer-info{
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-rights{
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer{
+  background-color: #31511e;
 }

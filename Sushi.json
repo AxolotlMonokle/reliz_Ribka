@@ -1,21 +1,21 @@
 [
     {
-        "title": "сирний-гриль рол",
+        "title": "Сирний-гриль рол",
         "price": 280,
         "image": "img/chessegrill.jpg"
     },
     {
-        "title": "запечений рол спайсі чікен",
+        "title": "Запечений рол спайсі чікен",
         "price": 220,
         "image": "img/spicychikensushi.jpg"
     },
     {
-        "title": "рол з манго",
+        "title": "Рол з манго",
         "price": 260,
         "image": "img/mangosushi.jpg"
     },
     {
-        "title": "рол червоний оксамит",
+        "title": "Рол червоний оксамит",
         "price": 410,
         "image": "img/redoksamitsushi.jpg"
     },
@@ -25,43 +25,53 @@
         "image": "img/salmonsushi.jpg"
     },
     {
-        "title": "рол з креветкою",
+        "title": "Рол з креветкою",
         "price": 250,
         "image": "img/shrimpsushi.jpg"
     },
     {
-        "title": "рол з тунцем",
+        "title": "Рол з тунцем",
         "price": 240,
         "image": "img/tunasushi.jpg"
     },
     {
-        "title": "запечений рол чікен з грушою",
+        "title": "Запечений рол чікен з грушою",
         "price": 220,
         "image": "img/chikenpearsushi.jpg"
     },
     {
-        "title": "хендрол з тунцем і авокадо",
+        "title": "Хендрол з тунцем і авокадо",
         "price": 200,
         "image": "img/HRtunapear.png"
     },
     {
-        "title": "хендрол спайсі чікен",
+        "title": "Хендрол спайсі чікен",
         "price": 200,
         "image": "img/HRspicychiken.png"
     },
     {
-        "title": "хендрол з креветкою",
+        "title": "Хендрол з креветкою",
         "price": 200,
         "image": "img/HRshrimp.png"
     },
     {
-        "title": "хендрол міх",
+        "title": "Хендрол міх",
         "price": 220,
         "image": "img/HRmix.png"
     },
         {
-        "title": "хендрол з вугрем і манго",
+        "title": "Хендрол з вугрем і манго",
         "price": 230,
         "image": "img/HRmango.png"
+    },    {
+        "title": "Сирний рол з креветкою",
+        "price": 200,
+        "image": "img/sirnisushizcrevetkou.png"
+    },
+        {
+        "title": "Сирний рол з вугрем",
+        "price": 220,
+        "image": "img/sirnisushizvugrem.png"
     }
+
 ]
